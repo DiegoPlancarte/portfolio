@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!, :except => [:create]
-  before_action :set_contact, only: [:show, :edit, :update, :destroy, :favorite_contact]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   # GET /contacts
   # GET /contacts.json
