@@ -1,45 +1,48 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-const useForm = ( submitFunc, data ) => {
+// const useForm = ( submitFunc, data ) => {
   
-  const [ state, setState ] = useState({});
+//   const [ state, setState ] = useState({});
 
-  const handleInputChange = (event) => {
-    event.persist();
-    setState(state => ({...state, [event.target.name]: event.target.value}));
-  }
-  
-  const handleSubmit = (event) => {
-    if(event) {
-      event.preventDefault();
-    }
-    `${submitFunc}`
-  }
-
-  return [
-    state,
-    handleInputChange,
-    handleSubmit
-  ]
-}
-
-export default useForm;
-
-// import { useState } from 'react'
-
-// const useForm = (defaultValues, submitCallback) => {
-//   const [values, setValues] = useState(defaultValues)
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     submitCallback() 
+//   const handleInputChange = (event) => {
+//     event.persist();
+//     setState(state => ({...state, [event.target.name]: event.target.value}));
 //   }
   
-//   const handleChange = (e) => {
-//     e.persist()
-//     setValues(values => ({ ...values, [e.target.name]: e.target.value }))
+//   const handleSubmit = (event) => {
+//     if(event) {
+//       event.preventDefault();
+//     }
+//     `${submitFunc}`
 //   }
-//   return [values, handleChange, handleSubmit]
+
+//   return [
+//     state,
+//     handleInputChange,
+//     handleSubmit
+//   ]
 // }
 
-// export default useForm
+// export default useForm;
+
+import { useState } from 'react'
+
+const useForm = (defaultValues, submitCallback) => {
+  const [values, setValues] = useState(defaultValues)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    submitCallback() 
+  }
+  
+  const handleInputChange = (e) => {
+    e.persist()
+    setValues(values => ({ ...values, [e.target.name]: e.target.value }))
+  }
+  return [
+    values, 
+    handleInputChange, 
+    handleSubmit]
+}
+
+export default useForm

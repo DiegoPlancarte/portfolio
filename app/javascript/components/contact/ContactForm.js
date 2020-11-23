@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap'
 import useCreate from '../hooks/useCreate'
 import useForm from '../hooks/useForm'
 
 const ContactForm = (props) => {
 
   const [ createContact ] = useCreate('contacts', props, 'refresh')
-  const [ contact, setContact ] = useState({})
+  const [ contact, setContact ] = useState({status: 'Unread'})
   // const [ contact, handleInputChange, handleSubmit ] = useForm()
 
   const handleSubmit = (event) => {
@@ -18,17 +18,18 @@ const ContactForm = (props) => {
   
   const handleInputChange = (event) => {
     event.persist();
-    setContact(contact=>({...contact, status: 'Unread' }))
+    // setContact(contact=>({...contact, status: 'Unread' }))
     setContact(contact => ({...contact, [event.target.name]: event.target.value}));
   }
-
-  console.log(props.csrf_token)
 
   return(
     <React.Fragment>
       <Container sm={6} id="form">
+        <Card>
+        <Card.Body>
         <h1 className="text-primary" id="header">Add New Contact!</h1>
         <hr/>
+
       <Form>
         <Row xs="1" lg="2">
           <Col xs="12" lg="9">
@@ -97,6 +98,8 @@ const ContactForm = (props) => {
           <Button className="btn btn-primary text-white" onClick={ handleSubmit }>
             Submit
           </Button>
+        </Card.Body>
+        </Card>
         </Container>
     </React.Fragment>
     )
