@@ -6,6 +6,8 @@ import useRead from '../hooks/useRead'
 const MessageInfo = (props) => {
 
   const [ message, setMessage, messageLoading, messageError ] = useRead(`contacts/${props.match.params.id}`)
+  const [status, statusLoading, statusErrors ] = useUpdate(`contacts/${messages.id}`)
+  const [ deleteMessage ] = useDelete(`contacts/${props.match.params.id}`, props, 'messages')
 
   if (messageLoading) {
     return <Container>

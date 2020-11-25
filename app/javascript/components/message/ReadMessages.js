@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { Container, Table } from 'react-bootstrap'
 import useRead from '../hooks/useRead'
+import useUpdate from '../hooks/useUpdate'
 
 const ReadMessages = (props) => {
 
-  const [contacts, setContacts, contactsLoading, contactErrors ] = useRead('contacts')
+  const [messages, setMessage, messagesLoading, messageErrors ] = useRead('contacts')
+  const [status, statusLoading, statusErrors ] = useUpdate(`contacts/${messages.id}`)
 
-  if (contactsLoading) {
+  if (messagesLoading) {
     return <Container>
               <div >
                 <h1 className="text-primary">Loading...</h1>
@@ -28,10 +30,11 @@ const ReadMessages = (props) => {
           </tr>
         </thead>
         <tbody>
-          {contacts.map((v,i) => {
+          {messages.map((v,i) => {
+            const num = i + 1
             return(
             <tr key={i}>
-              <td>{v.id}</td>
+              <td>{num}</td>
               <td><Link to={`/messageinfo/${v.id}`} className="text-truncate text-white">{v.name}</Link></td>
               <td><Link to={`/messageinfo/${v.id}`} className="text-truncate text-white">{v.title}</Link></td>
               <td><Link to={`/messageinfo/${v.id}`} className="text-truncate text-white">{v.body}</Link></td>
