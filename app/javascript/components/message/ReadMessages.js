@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Table } from 'react-bootstrap'
 import useRead from '../hooks/useRead'
 
-const ReadContact = (props) => {
+const ReadMessages = (props) => {
 
   const [contacts, setContacts, contactsLoading, contactErrors ] = useRead('contacts')
 
@@ -23,8 +23,6 @@ const ReadContact = (props) => {
             <th>Name</th>
             <th>Title</th>
             <th>Body</th>
-            <th>Email</th>
-            <th>Phone</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -36,8 +34,6 @@ const ReadContact = (props) => {
               <td>{v.name}</td>
               <td>{v.title}</td>
               <td>{v.body}</td>
-              <td>{v.email}</td>
-              <td>{v.phone}</td>
               <td>{v.status}</td>
             </tr>
             )
@@ -48,4 +44,4 @@ const ReadContact = (props) => {
   );
 }
 
-export default ReadContact;
+export default ReadMessages;
