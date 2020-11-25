@@ -1,8 +1,9 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import ContactForm from "./contact/ContactForm";
-import ReadContact from "./contact/ReadContact";
+import ContactForm from "./message/ContactForm";
+import ReadMessages from "./message/ReadMessages";
+import MessageInfo from "./message/MessageInfo";
 
 const App = (props) => {
 
@@ -22,7 +23,8 @@ const App = (props) => {
 
         <Switch>
           <Route path = '/contactme' render={(props) => <ContactForm {...props} csrf_token={ csrf_token } /> }/>
-          <Route path = '/messages' render={(props) => <ReadContact {...props} csrf_token={ csrf_token } /> }/>
+          <Route path = '/messages' render={(props) => <ReadMessages {...props} csrf_token={ csrf_token } /> }/>
+          <Route path = '/messageinfo/:id' render={(props) => <MessageInfo {...props} csrf_token={ csrf_token } /> }/>
         </Switch>
       </Router>
     </React.Fragment>
