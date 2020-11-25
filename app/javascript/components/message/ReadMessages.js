@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { Container, Table } from 'react-bootstrap'
 import useRead from '../hooks/useRead'
 
@@ -31,9 +32,9 @@ const ReadMessages = (props) => {
             return(
             <tr key={i}>
               <td>{v.id}</td>
-              <td>{v.name}</td>
-              <td>{v.title}</td>
-              <td>{v.body}</td>
+              <td><Link to={`/messageinfo/${v.id}`} className="text-truncate text-white">{v.name}</Link></td>
+              <td><Link to={`/messageinfo/${v.id}`} className="text-truncate text-white">{v.title}</Link></td>
+              <td><Link to={`/messageinfo/${v.id}`} className="text-truncate text-white">{v.body}</Link></td>
               <td>{v.status}</td>
             </tr>
             )
