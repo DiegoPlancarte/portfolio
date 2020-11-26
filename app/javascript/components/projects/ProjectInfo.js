@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import useRead from '../hooks/useRead'
-import useCreate from '../hooks/useCreate'
 import useDelete from '../hooks/useDelete'
 
 const ProjectInfo = (props) => {
@@ -12,10 +11,6 @@ const ProjectInfo = (props) => {
 
   if (projectLoading) {
     return <div>Loading...</div>
-  }
-
-  const creator = () => {
-    return props.current_user.id === project.user_id
   }
   
   return (
