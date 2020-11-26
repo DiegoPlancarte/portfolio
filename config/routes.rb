@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   resources :contacts
   devise_for :users
   get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
