@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import useCreate from '../hooks/useCreate'
-import useForm from '../hooks/useForm'
 
 const CreateProject = (props) => {
 
   const [ createProject ] = useCreate('projects', props, 'allprojects')
   const [ projects, setProject ] = useState({})
-  // const [ projects, handleInputChange, handleSubmit ] = useForm()
 
   const handleSubmit = (event) => {
     if(event) {
@@ -45,6 +43,7 @@ const CreateProject = (props) => {
                   onChange={ handleInputChange } 
                   placeholder="Enter description" />
               </Form.Group>
+
               <Button variant="primary" onClick={ handleSubmit } type="submit">
                 Submit
               </Button>

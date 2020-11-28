@@ -8,6 +8,7 @@ import ShowProjects from "./projects/ShowProjects";
 import CreateProject from "./projects/CreateProject";
 import UpdateProject from "./projects/UpdateProject";
 import ProjectInfo from "./projects/ProjectInfo";
+import ProjectImage from "./projects/ProjectImage";
 
 const App = (props) => {
 
@@ -33,6 +34,7 @@ const App = (props) => {
           <Route path="/createproject" render={(props) => <CreateProject {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
           <Route path ='/projectinfo/:id' render={(props) => <ProjectInfo {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
           <Route path="/editproject/:id" render={(props) => <UpdateProject {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
+          <Route path="/projectimage/:id" render={(props) => <ProjectImage {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
         </Switch>
       </Router>
     </React.Fragment>
