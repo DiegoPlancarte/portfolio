@@ -43,6 +43,7 @@ const CreateProject = (props) => {
                   onChange={ handleInputChange } 
                   placeholder="Enter description" />
               </Form.Group>
+
               <Button variant="primary" onClick={ handleSubmit } type="submit">
                 Submit
               </Button>

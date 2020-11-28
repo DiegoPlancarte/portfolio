@@ -18,6 +18,7 @@ const ProjectInfo = (props) => {
       <h1>{project.title}</h1>
       <p>{project.description}</p>
       <Link to={`/editproject/${project.id}`}><Button>Edit Project</Button></Link>
+      <Link to={`/projectimage/${project.id}`}><Button>Add Image</Button></Link>
       <Button onClick={ deleteProject } className="btn btn-danger" >Delete Project</Button>
     </React.Fragment>
   );
