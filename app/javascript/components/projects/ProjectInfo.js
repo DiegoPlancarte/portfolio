@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import useRead from '../hooks/useRead'
 import useDelete from '../hooks/useDelete'
+import Loading from '../components/loading/Loading.component';
 
 const ProjectInfo = (props) => {
 
@@ -10,7 +11,7 @@ const ProjectInfo = (props) => {
   const [ deleteProject ] = useDelete(`projects/${props.match.params.id}`, props, 'allprojects')
 
   if (projectLoading) {
-    return <div>Loading...</div>
+    return (<Loading/>)
   }
   
   return (
