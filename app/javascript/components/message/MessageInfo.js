@@ -14,11 +14,7 @@ const MessageInfo = (props) => {
   const [ deleteMessage ] = useDelete(`contacts/${props.match.params.id}`, props, 'messages')
 
   if (messageLoading) {
-    return <Container>
-              <div >
-                <h1 className="text-primary">Loading...</h1>
-              </div>
-          </Container>
+    return (<Loading/>)
   }
 
   const handleDelete = () => {

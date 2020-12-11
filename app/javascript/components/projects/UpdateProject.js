@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import Loading from '../components/loading/Loading.component';
 import useRead from '../hooks/useRead'
 import useUpdate from '../hooks/useUpdate'
 
@@ -21,7 +22,7 @@ const EditProject = (props) => {
   }
 
   if (projectLoading) {
-    return <div>Loading...</div>
+    return (<Loading/>)
   }
 
   return (

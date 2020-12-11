@@ -1,5 +1,6 @@
 import React from 'react';
 import ActiveStorageProvider from 'react-activestorage-provider'
+import Loading from '../components/loading/Loading.component';
 import useRead from '../hooks/useRead'
 import useUpdate from '../hooks/useUpdate'
 
@@ -13,7 +14,7 @@ const ProjectImage = (props) => {
   }
 
   if (projectLoading) {
-    return <div>Loading...</div>
+    return (<Loading/>)
   }
 
   return ( 

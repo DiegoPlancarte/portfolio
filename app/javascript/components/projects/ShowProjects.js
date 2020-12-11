@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import Loading from '../components/loading/Loading.component';
 import useRead from '../hooks/useRead'
 
 const ShowProjects = () => {
@@ -8,7 +9,7 @@ const ShowProjects = () => {
   const [ projects, setProjects, projectsLoading, projectErrors ] = useRead('projects')
 
   if (projectsLoading) {
-    return <div><Spinner animation="border" variant="primary" />Loading...</div>
+    return (<Loading/>)
   }
 
   return (

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container, Table } from 'react-bootstrap'
 import useRead from '../hooks/useRead'
 import useUpdate from '../hooks/useUpdate'
+import Loading from '../components/loading/Loading.component';
 
 const ReadMessages = (props) => {
 
@@ -10,11 +11,7 @@ const ReadMessages = (props) => {
   const [status, statusLoading, statusErrors ] = useUpdate(`contacts/${messages.id}`)
 
   if (messagesLoading) {
-    return <Container>
-              <div >
-                <h1 className="text-primary">Loading...</h1>
-              </div>
-          </Container>
+    return (<Loading/>)
   }
 
   return ( 
