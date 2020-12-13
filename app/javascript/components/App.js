@@ -35,6 +35,7 @@ const App = (props) => {
           <Route path="/newallprojects" render={(props) => <AllProjects {...props} csrf_token={ csrf_token } /> }/>
           <Route path="/createproject" render={(props) => <CreateProject {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
           <Route path ='/projectinfo/:id' render={(props) => <ProjectInfo {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
+          <Route path ='/newprojectinfo/:id' render={(props) => <ProjectInfos {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
           <Route path="/editproject/:id" render={(props) => <UpdateProject {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
           <Route path="/projectimage/:id" render={(props) => <ProjectImage {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
         </Switch>
